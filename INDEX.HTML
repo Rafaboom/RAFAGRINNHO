@@ -1,10 +1,89 @@
-<html> 
-      <head>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vídeo de Fundo Infinito</title>
+<style>
+  body {
+    margin: 0; /* Remove margem padrão do body */
+    overflow: hidden; /* Esconde barras de rolagem se o vídeo for maior que a tela */
+    font-family: Arial, sans-serif;
+    color: white; /* Cor do texto sobre o vídeo */
+    text-align: center;
+  }
 
-    </head>
-    <body>
-    <ul>
-         <li><a>INICIE O JOGO</a></li>
-     </ul>
-    </body>
+  .video-background {
+    position: fixed; /* Fixa o vídeo no viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Garante que o vídeo não "estoure" do container */
+    z-index: -1; /* Coloca o vídeo atrás de todo o conteúdo */
+  }
+
+  .video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o vídeo */
+    object-fit: cover; /* Faz o vídeo preencher o container sem distorcer, cortando se necessário */
+  }
+
+  .content {
+    position: relative; /* Para garantir que o conteúdo fique acima do vídeo */
+    z-index: 1; /* Coloca o conteúdo acima do vídeo */
+    padding-top: 150px; /* Espaço para o conteúdo não ficar colado no topo */
+    padding-bottom: 50px;
+  }
+
+  .content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para melhorar a legibilidade */
+  }
+
+  .content p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  }
+
+  /* Opcional: Adicionar uma sobreposição escura para melhorar a legibilidade do texto */
+  .video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Preto com 40% de opacidade */
+    z-index: 0; /* Entre o vídeo e o conteúdo */
+  }
+
+</style>
+</head>
+<body>
+
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="seu-video.mp4" type="video/mp4">
+            <source src="seu-video.webm" type="video/webm">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
+
+    <div class="content">
+        <h1>Bem-vindo ao Meu Site!</h1>
+        <p>Este é um exemplo de um vídeo de fundo contínuo.</p>
+        <p>Ele adiciona uma atmosfera dinâmica e imersiva à página.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+</body>
 </html>
