@@ -1,0 +1,62 @@
+/* style.css */
+
+body {
+    margin: 0; /* Remove margem padrão do body */
+    overflow: hidden; /* Esconde barras de rolagem se o vídeo for maior que a tela */
+    font-family: Arial, sans-serif;
+    color: white; /* Cor do texto sobre o vídeo */
+    text-align: center;
+}
+
+.video-background {
+    position: fixed; /* Fixa o vídeo no viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Garante que o vídeo não "estoure" do container */
+    z-index: -1; /* Coloca o vídeo atrás de todo o conteúdo */
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o vídeo */
+    object-fit: cover; /* Faz o vídeo preencher o container sem distorcer, cortando se necessário */
+}
+
+/* Opcional: Adicionar uma sobreposição escura para melhorar a legibilidade do texto */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(66, 66, 66, 0.4); /* Preto com 40% de opacidade */
+    z-index: 0; /* Entre o vídeo e o conteúdo */
+}
+
+.content {
+    position: relative; /* Para garantir que o conteúdo fique acima do vídeo */
+    z-index: 1; /* Coloca o conteúdo acima do vídeo */
+    padding-top: 150px; /* Espaço para o conteúdo não ficar colado no topo */
+    padding-bottom: 50px;
+}
+
+.content h2 { /* Regra para o título do jogo */
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para melhorar a legibilidade */
+}
+
+.content p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}   
